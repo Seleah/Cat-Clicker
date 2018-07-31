@@ -51,8 +51,30 @@ let model = {
 
 /* --------- Octopus --------- */
 
+let octopus = {
+	init: function() {
+		// Start off with the first cat in the list
+		model.currentCat = model.cats[0];
 
+		// Initialize views
+		catViewer.init();
+		catList.init();
+	},
+};
 
 
 /* ---------- View ----------- */
 
+let catViewer = {
+	init: function() {
+
+	}
+};
+
+let catList = {
+	init: function() {
+
+	}
+};
+
+octopus.init();
