@@ -1,0 +1,24 @@
+img {
+	max-width: 300px;
+	border-radius: 5px;
+}
+ul {
+	list-style: none;
+}
+li {
+	background-color: lightgrey;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+	width: 100px;
+}
+li:hover {
+	background-color: grey;
+}
+body {
+	display: flex;
+	justify-content: center;
+}
+span {
+	margin: 50px;
+}
