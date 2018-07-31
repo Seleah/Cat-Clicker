@@ -60,6 +60,9 @@ let octopus = {
 		catViewer.init();
 		catList.init();
 	},
+	getCurrentCat: function() {
+		return model.currentCat;
+	},
 };
 
 
@@ -67,7 +70,26 @@ let octopus = {
 
 let catViewer = {
 	init: function() {
+		// DOM element pointers
+		this.catElem = document.getElementById('cat');
+		this.catNameElem = document.getElementById('cat-name');
+		this.catImageElem = document.getElementById('cat-img');
+		this.countElem = document.getElementById('cat-count');
 
+		// on click, increment the current cat's counter
+		this.catImageElem.addEventListener('click', function(){
+			octopus.incrementCounter();
+		});
+
+		// render this view (update the DOM elements with the right values)
+		this.render();
+	},
+	render: function() {
+		// update the DOM elements with values from the current cat
+		var currentCat = octopus.getCurrentCat();
+		this.countElem.textContent = currentCat.clickCount;
+		this.catNameElem.textContent = currentCat.name;
+		this.catImageElem.src = currentCat.image;
 	}
 };
 
