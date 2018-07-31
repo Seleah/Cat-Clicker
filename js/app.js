@@ -1,5 +1,8 @@
 /* app.js */
 
+// Only slightly modified from this version of a Cat Clicker:
+// https://github.com/udacity/ud989-cat-clicker-premium-vanilla
+
 /* ---------- Model ---------- */
 
 let model = {
