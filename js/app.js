@@ -63,11 +63,16 @@ let octopus = {
 
 		// Initialize views
 		catViewer.init();
-		catList.init();
+		catListView.init();
 	},
 	getCurrentCat: function() {
 		return model.currentCat;
 	},
+	// Increments the counter for the currently-selected cat
+	incrementCounter: function() {
+		model.currentCat.clickCount++;
+		catViewer.render();
+	}
 };
 
 
@@ -98,9 +103,44 @@ let catViewer = {
 	}
 };
 
-let catList = {
+let catListView = {
 	init: function() {
+		// Store the DOM element for easy access later
+		this.catListElem = document.getElementById('cat-list');
 
+		// Render this view (update the DOM elements with the right values)
+		this.render();
+	},
+	render: function() {
+		var cat, elem, i;
+		// get the cats we'll be rendering from the octopus
+		var cats = octopus.getCats();
+
+		// empty the cat list
+		this.catListElem.innerHTML = '';
+
+		// loop over the cats
+		for (i = 0; i < cats.length; i++) {
+			// this is the cat we're currently looping over
+			cat = cats[i];
+
+			// make a new cat list item and set its text
+			elem = document.createElement('li');
+			elem.textContent = cat.name;
+
+			// on click, setCurrentCat and render the catView
+			// (this uses our closure-in-a-loop trick to connect the value
+			//  of the cat variable to the click event function)
+			elem.addEventListener('click', (function(catCopy) {
+				return function() {
+					octopus.setCurrentCat(catCopy);
+					catViewer.render();
+				};
+			})(cat));
+
+			// finally, add the element to the list
+			this.catListElem.appendChild(elem);
+		}
 	}
 };
 
