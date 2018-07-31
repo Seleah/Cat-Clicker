@@ -2,6 +2,8 @@
 
 // Only slightly modified from this version of a Cat Clicker:
 // https://github.com/udacity/ud989-cat-clicker-premium-vanilla
+// This project is intended for practice for a new skill, a chance to play with
+// someone else's code to learn how it works.
 
 /* ---------- Model ---------- */
 
