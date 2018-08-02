@@ -1,5 +1,9 @@
+main {
+	width: 100%;
+}
+
 img {
-	max-width: 300px;
+	max-width: 600px;
 	border-radius: 5px;
 }
 
@@ -21,11 +25,25 @@ li:hover {
 
 body {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
+}
+
+div {
+	margin: 5px;
+}
+
+.container {
+	display: flex;
 }
 
 span {
 	margin: 50px;
+}
+
+#admin-box {
+	margin: auto;
+	padding-left: 32%;
 }
 
 .hideAdmin {
@@ -33,4 +51,11 @@ span {
 }
 .showAdmin {
 	visibility: visible;
+}
+
+@media screen and (min-width: 1000px) {
+	body {
+		width: 1000px;
+		margin: auto;
+	}
 }

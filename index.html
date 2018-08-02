@@ -18,39 +18,43 @@
 		<script src="jasmine/lib/jasmine-2.1.2/boot.js"></script> -->
 	</head>
 	<body>
-		<span id="list-container">
-			<ul id="cat-list"></ul>
-		</span>
-		<span id="viewer">
-			<div id="cat">
-				<h2 id="cat-name"></h2>
-				<div id="cat-count"></div>
-				<img id="cat-img" src="" alt="cute cat">
+		<main>
+			<div class="container">
+				<span id="list-container">
+					<ul id="cat-list"></ul>
+				</span>
+				<span id="viewer">
+					<div id="cat">
+						<h2 id="cat-name"></h2>
+						<div id="cat-count"></div>
+						<img id="cat-img" src="" alt="cute cat">
+					</div>
+				</span>
 			</div>
-		</span>
-		<div id="admin-box">
-			<button id="admin-btn">Admin</button>
-			<form class="" id="admin-form">
-				<div>
-					<label for="name">Name:</label>
-					<input type="text" id="name" name="cat_name">
-				</div>
-				<div>
-					<label for="url">Image URL:</label>
-					<input type="text" id="url" name="image-url">
-				</div>
-				<div>
-					<label for="clicks">Number of Clicks:</label>
-					<input type="num" id="clicks" name="num_clicks">
-				</div>
-				<div class="button">
-					<button id="admin-save" type="submit">Save</button>
-				</div>
-				<div class="button">
-					<button id="admin-cancel" type="reset">Cancel</button>
-				</div>
-			</form>
-		</div>
+			<div id="admin-box">
+				<button id="admin-btn">Admin</button>
+				<form class="" id="admin-form">
+					<div>
+						<label for="name">Name:</label>
+						<input type="text" id="name" name="cat_name">
+					</div>
+					<div>
+						<label for="url">Image URL:</label>
+						<input type="text" id="url" name="image-url">
+					</div>
+					<div>
+						<label for="clicks">Number of Clicks:</label>
+						<input type="num" id="clicks" name="num_clicks">
+					</div>
+					<div class="button">
+						<button id="admin-save" type="submit">Save</button>
+					</div>
+					<div class="button">
+						<button id="admin-cancel" type="reset">Cancel</button>
+					</div>
+				</form>
+			</div>
+		</main>
 		<script src="js/app.js"></script>
 	</body>
 </html>
