@@ -65,6 +65,7 @@ let octopus = {
 		// Initialize views
 		catViewer.init();
 		catListView.init();
+		adminView.init();
 	},
 	getCurrentCat: function() {
 		return model.currentCat;
@@ -84,20 +85,34 @@ let octopus = {
 	adminShowHide: function() {
 		if (model.adminHide === true) {
 			model.adminHide = false;
-			admin.classList.remove('hideAdmin');
-			admin.classList.add('showAdmin');
+			adminView.adminForm.classList.remove('hideAdmin');
+			adminView.adminForm.classList.add('showAdmin');
 		} else {
 			model.adminHide = true;
-			admin.classList.remove('showAdmin');
-			admin.classList.add('hideAdmin');
+			adminView.adminForm.classList.remove('showAdmin');
+			adminView.adminForm.classList.add('hideAdmin');
 		}
 	},
-	adminSave: function() {
+	adminSaveNew: function(){
+		if(adminView.adminCatName.value) {
+			model.currentCat.name= adminView.adminCatName.value;
+			adminView.adminCatName.value = '';
+		}
 
+		if(adminView.adminCatURL.value) {
+			model.currentCat.image= adminView.adminCatURL.value;
+			adminView.adminCatURL.value = '';
+		}
+
+		if(adminView.adminCatClicks.value) {
+			model.currentCat.clickCount= adminView.adminCatClicks.value;
+			adminView.adminCatClicks.value = '';
+		}
+
+		catViewer.render();
+		catListView.render();
+		this.adminShowHide();
 	},
-	adminCancel: function() {
-
-	}
 };
 
 
@@ -167,6 +182,30 @@ let catListView = {
 			this.catListElem.appendChild(elem);
 		}
 	}
+};
+
+let adminView = {
+	adminForm: document.getElementById('admin-form'),
+	init: function() {
+		this.adminButton = document.getElementById('admin-btn');
+		this.adminCatName = document.getElementById('name');
+		this.adminCatURL = document.getElementById('url');
+		this.adminCatClicks = document.getElementById('clicks');
+		this.adminSave = document.getElementById('admin-save');
+		this.adminCancel = document.getElementById('admin-cancel');
+
+		this.adminButton.addEventListener('click', octopus.adminShowHide);
+		this.adminSave.addEventListener('click', function(e) {
+			e.preventDefault();
+			octopus.adminSaveNew();
+		});
+		this.adminCancel.addEventListener('click', octopus.adminShowHide);
+
+		this.render();
+	},
+	render: function() {
+		this.adminForm.classList.add('hideAdmin');
+	},
 };
 
 // Gogogoooo!!! :D
