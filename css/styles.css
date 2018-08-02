@@ -28,6 +28,9 @@ span {
 	margin: 50px;
 }
 
-form {
+.hideAdmin {
 	visibility: hidden;
+}
+.showAdmin {
+	visibility: visible;
 }
