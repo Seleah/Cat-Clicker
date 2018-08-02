@@ -9,6 +9,7 @@
 
 let model = {
 	currentCat: null,
+	adminHide: true,
 	cats: [
 		{
 			name: 'Oscar',
@@ -79,6 +80,23 @@ let octopus = {
 	incrementCounter: function() {
 		model.currentCat.clickCount++;
 		catViewer.render();
+	},
+	adminShowHide: function() {
+		if (model.adminHide === true) {
+			model.adminHide = false;
+			admin.classList.remove('hideAdmin');
+			admin.classList.add('showAdmin');
+		} else {
+			model.adminHide = true;
+			admin.classList.remove('showAdmin');
+			admin.classList.add('hideAdmin');
+		}
+	},
+	adminSave: function() {
+
+	},
+	adminCancel: function() {
+
 	}
 };
 
